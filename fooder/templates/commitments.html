@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Commitments
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Foodtype</th>
+                <th>Description</th>
+                <th>Order Location</th>
+                <th>Order Time</th>
+                <th>Commits Needed</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tfoot>
+
+
+        </tfoot>
+        <tbody>
+
+                {% for order in orders %}
+                <p>
+                <tr>
+                    <td> {{order.username}} </td>
+                    <td> {{order.foodtype}} </td>
+                    <td> {{order.description}} </td>
+                    <td> {{order.location}} </td>
+                    <td> {{order.time}}</td>
+                    <td> {{order.commits}} </td>
+                    <td>
+                       <pre>Email : {{order.email}}</pre>
+                       <pre>Venmo : {{order.venmo}}</pre>
+                       <pre>Phone : {{order.phone}} </pre>
+                       <pre>Pickup : {{order.piclocation}} </pre>
+                       </td>
+                </tr>
+                </p>
+                {% endfor %}
+
+
+        </tbody>
+        <style>
+            table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+        </style>
+    </table>
+{% endblock %}
